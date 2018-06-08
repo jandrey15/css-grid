@@ -13,13 +13,22 @@
       display: grid;
       /* Dividimos en 3 columns de 300px el contenido hijo   */
     /*  grid-template-columns: 300px 300px 300px; */
-      grid-template-columns: 25% 200px 25%;
+      /*grid-template-columns: 25% 200px 25%;*/
     /*  Grid explicito (explicit grid) y Grid implicito (implicit grid) */
-      grid-template-rows: 200px 150px;
+      /*grid-template-rows: 200px 150px;*/
     /*  grid-template: filas/columnas; */
-      grid-template: 200px 200px 100px / 50% 150px 25%;
+      /*grid-template: 200px 200px 100px / 50% 150px 25%;*/
+      /* Nueva unidad fracciones con fr*/
+      grid-template: 200px 200px 100px / 1fr 1fr 1fr;
+      /*grid-template: 200px 200px 100px / auto auto auto;*/
+      /* El repeat me agrega el nuevo de columns que quiero en este caso 4 de 1fr */
+      grid-template: 200px 200px 100px / repeat(4, 1fr);
+      /* Le damos un tamaño minimo y maximo */
+      grid-template: 200px 200px 100px / repeat(3, minmax(300px, 1fr));
+      /*Un valor minimo y máximo para la primera column las otras se acomodan segun el contenido*/
+      grid-template: 200px 200px 100px / minmax(300px, 1fr) 1fr 1fr;
       /* Toma la ultima propiedad grid-template*/
-      
+
       /*grid-column-gap: 10px;*/
       /* Nueva forma */
       column-gap: 5px;
@@ -28,8 +37,9 @@
       /*grip-gap: 10px 50px;*/
       /* rows y columns */
       gap: 10px 50px;
-      margin: 20px auto;
-      width: 1000px;
+      gap: 10px;
+      /*margin: 20px auto;*/
+      /*width: 1000px;*/
     }
 
     .item {
