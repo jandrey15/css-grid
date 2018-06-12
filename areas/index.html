@@ -1,0 +1,92 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body {
+      font-family: Arial;
+    }
+
+    .container {
+      display: grid;
+      /* Dividimos en 3 columns de 300px el contenido hijo   */
+    /*  grid-template-columns: 300px 300px 300px; */
+      /*grid-template-columns: 25% 200px 25%;*/
+    /*  Grid explicito (explicit grid) y Grid implicito (implicit grid) */
+      /*grid-template-rows: 200px 150px;*/
+    /*  grid-template: filas/columnas; */
+      /*grid-template: 200px 200px 100px / 50% 150px 25%;*/
+      /* Nueva unidad fracciones con fr*/
+      grid-template: 200px 200px 100px / 1fr 1fr 1fr;
+      /*grid-template: 200px 200px 100px / auto auto auto;*/
+      /* El repeat me agrega el nuevo de columns que quiero en este caso 4 de 1fr */
+      grid-template: 200px 200px 100px / repeat(4, 1fr);
+      /* Le damos un tamaño minimo y maximo */
+      grid-template: 200px 200px 100px / repeat(3, minmax(300px, 1fr));
+      /*Un valor minimo y máximo para la primera column las otras se acomodan segun el contenido*/
+      grid-template: 100px 1fr 150px / 200px 1fr;
+      /* Toma la ultima propiedad grid-template*/
+
+      /*grid-column-gap: 10px;*/
+      /* Nueva forma */
+      column-gap: 5px;
+      /*grid-row-gap: 20px;*/
+      row-gap: 20px;
+      /*grip-gap: 10px 50px;*/
+      /* rows y columns */
+      gap: 10px 50px;
+      gap: 10px;
+      grid-template-areas: "header header" 
+                            "left right"
+                            "footer footer";
+      height: 100vh;
+      /*margin: 20px auto;*/
+      /*width: 1000px;*/
+    }
+
+    .item {
+      background: lightsteelblue;
+      padding: 10px;
+      border: 1px solid red;
+      /* No es la forma correcta 
+        margin: 0 10px 10px 0;
+      */
+    }
+    .item:nth-of-type(4) {
+      background-color: green;
+      overflow: auto;
+      /*display: subgrid; Aun no soportan los browser */
+      display: grid;
+      grid-template: 50px 50px 50px / 200px 200px 200px;
+    }
+    .item .item{
+      background-color: yellow;
+    }
+
+    .header {
+      grid-area: header;
+    }
+    .left {
+      grid-area: left;
+    }
+
+    .right {
+      grid-area: right;
+    }
+
+    .footer {
+      grid-area: footer;
+    }
+  </style>
+</head>
+<body>
+  <section class="container">
+    <div class="item header">header1</div>
+    <div class="item left">left</div>
+    <div class="item right">right</div>
+    <div class="item footer">footer</div>
+  </section>
+</body>
+</html>
