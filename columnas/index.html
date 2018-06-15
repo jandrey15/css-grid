@@ -1,0 +1,84 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body {
+      font-family: Arial;
+    }
+
+    .container {
+      display: grid;
+      /* Dividimos en 3 columns de 300px el contenido hijo   */
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(4, 1fr);
+      /*grid-template-columns: 25% 200px 25%;*/
+    /*  Grid explicito (explicit grid) y Grid implicito (implicit grid) */
+      /*grid-template-rows: 200px 150px;*/
+    /*  grid-template: filas/columnas; */
+      /*grid-template: 200px 200px 100px / 50% 150px 25%;*/
+      /* Nueva unidad fracciones con fr*/
+      /*grid-template: 200px 200px 100px / 1fr 1fr 1fr;*/
+      /*grid-template: 200px 200px 100px / auto auto auto;*/
+      /* El repeat me agrega el nuevo de columns que quiero en este caso 4 de 1fr */
+      /*grid-template: 200px 200px 100px / repeat(4, 1fr);*/
+      /* Le damos un tamaño minimo y maximo */
+      /*grid-template: 200px 200px 100px / repeat(3, minmax(300px, 1fr));*/
+      /*Un valor minimo y máximo para la primera column las otras se acomodan segun el contenido*/
+      /*grid-template: 200px 200px 100px / minmax(300px, 1fr) 1fr 1fr;*/
+      /* Toma la ultima propiedad grid-template*/
+
+      /*grid-column-gap: 10px;*/
+      /* Nueva forma */
+      /*column-gap: 5px;*/
+      /*grid-row-gap: 20px;*/
+      /*row-gap: 20px;*/
+      /*grip-gap: 10px 50px;*/
+      /* rows y columns */
+      gap: 10px 50px;
+      gap: 10px;
+      /*margin: 20px auto;*/
+      /*width: 1000px;*/
+      height: 100vh;
+    }
+
+    .item {
+      background: lightsteelblue;
+      padding: 10px;
+      border: 1px solid red;
+      /* No es la forma correcta 
+        margin: 0 10px 10px 0;
+      */
+    }
+    .item:nth-of-type(1) {
+      background-color: green;
+      grid-column-start: 1;
+      grid-column-end: 3;
+      /*grid-column: inicio / final; forma corta*/
+    }
+    .item:nth-of-type(8) {
+      grid-column: 2 / 4; /*Se mueve por linea desde la linea 1*/
+      grid-column: 1 / span 2;/*Se mueve por espacio con span */
+      grid-column: 1 / -1; /*Toma todas las columnas con el -1*/
+    }
+  </style>
+</head>
+<body>
+  <section class="container">
+    <div class="item">item #1</div>
+    <div class="item">item #2</div>
+    <div class="item">item #3</div>
+    <div class="item">item #4</div>
+    <div class="item">item #5</div>
+    <div class="item">item #6</div>
+    <div class="item">item #7</div>
+    <div class="item">item #8</div>
+    <div class="item">item #9</div>
+    <div class="item">item #10</div>
+    <div class="item">item #11</div>
+    <div class="item">item #12</div>
+  </section>
+</body>
+</html>
